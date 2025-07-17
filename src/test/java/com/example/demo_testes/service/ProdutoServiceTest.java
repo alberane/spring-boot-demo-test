@@ -91,22 +91,22 @@ class ProdutoServiceTest {
     verify(produtoRepository, times(1)).findAll();
   }
 
-  // @Test
-  // @DisplayName("Deve buscar um produto por nome")
-  // void deveBuscarUmProdutoPorNome() {
-  // // Arrange
-  // List<Produto> produtos = Arrays.asList(
-  // new Produto(1L, "Pizza", 20.0, "Descrição"),
-  // new Produto(2L, "Refri", 20.0, "Descrição Refri"));
-  // when(produtoRepository.findByNomeContainingIgnoreCase("Pizza")).thenReturn(produtos);
+  @Test
+  @DisplayName("Deve buscar um produto por nome")
+  void deveBuscarUmProdutoPorNome() {
+    // Arrange
+    List<Produto> produtos = Arrays.asList(
+        new Produto(1L, "Pizza", 20.0, "Descrição"),
+        new Produto(2L, "Refri", 20.0, "Descrição Refri"));
+    when(produtoRepository.findByNomeContainingIgnoreCase("Pizza")).thenReturn(produtos);
 
-  // // Act
-  // List<Produto> resultado = produtoService.buscarPorNome("Pizza");
+    // Act
+    List<Produto> resultado = produtoService.buscarPorNome("Pizza");
 
-  // // Assert
-  // assertEquals(2, resultado.size());
-  // verify(produtoRepository, times(1)).findByNomeContainingIgnoreCase("Pizza");
-  // }
+    // Assert
+    assertEquals(2, resultado.size());
+    verify(produtoRepository, times(1)).findByNomeContainingIgnoreCase("Pizza");
+  }
 
   @Test
   @DisplayName("Deve buscar produto por ID")
