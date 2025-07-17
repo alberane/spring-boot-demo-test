@@ -28,6 +28,8 @@ public class Cliente {
   @NonNull
   private String email;
 
+  private Integer idade;
+
   // Getters and Setters
   public Long getId() {
     return id;
